@@ -735,18 +735,17 @@ footer {
 
 
 .schedule-container {
+  position: relative;
   width: 100%;
   height: 600px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
-  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden; /* ограничивает скролл внутри контейнера */
+  border-radius: 12px;
 }
-
 .schedule-container iframe {
   width: 100%;
   height: 100%;
   border: none;
-  filter: brightness(0.95);
+  overflow: auto;
+  pointer-events: auto; /* позволяет фрейму получать события */
 }
 
