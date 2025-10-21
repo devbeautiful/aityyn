@@ -109,3 +109,23 @@ phoneInput.addEventListener('blur', () => {
     phoneInput.style.border = 'none';
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+const scheduleFrame = document.querySelector('.schedule-container iframe');
+
+scheduleFrame.addEventListener('mouseenter', () => {
+  document.body.style.overflow = 'hidden'; // отключает прокрутку страницы
+});
+
+scheduleFrame.addEventListener('mouseleave', () => {
+  document.body.style.overflow = ''; // возвращает прокрутку
+});
