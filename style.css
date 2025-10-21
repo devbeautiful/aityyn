@@ -83,6 +83,7 @@ nav a:hover::after {
 }
 
 
+
 /* --- HERO --- */
 .hero {
   position: relative;
@@ -102,9 +103,9 @@ nav a:hover::after {
   position: absolute;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, #7a4cff, #ff0055, transparent 70%);
-  filter: blur(200px);
-  opacity: 0.5;
+  background: radial-gradient(circle, #ffffff, #e7a4ff, transparent 70%);
+  filter: blur(250px);
+  opacity: 0.3;
   animation: glowMove 10s ease-in-out infinite alternate;
   z-index: 0;
 }
@@ -114,9 +115,9 @@ nav a:hover::after {
   position: absolute;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, #00ffff, #0077ff, transparent 70%);
-  filter: blur(200px);
-  opacity: 0.4;
+  background: radial-gradient(circle, #5202a7, #560e9a, transparent 70%);
+  filter: blur(250px);
+  opacity: 0.9;
   animation: glowMove2 15s ease-in-out infinite alternate-reverse;
   z-index: 0;
 }
@@ -592,7 +593,7 @@ footer {
   }
 
   .hero {
-    height: 120vh;
+    height: 100vh;
     padding: 0 20px;
   }
 
@@ -692,5 +693,60 @@ footer {
   .program-card h3 {
     font-size: 1.1rem;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.schedule-container {
+  width: 100%;
+  height: 600px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.schedule-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: brightness(0.95);
 }
 
