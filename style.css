@@ -1,0 +1,696 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+
+  /* 🔥 Liquid glass эффект */
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 0 0 20px 20px;
+  transition: all 0.4s ease;
+}
+
+/* Когда страница проскроллена */
+header.scrolled {
+  background: rgba(255, 255, 255, 0.010);
+  backdrop-filter: blur(20px) saturate(200%);
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  color: #fff;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.257);
+}
+
+nav a {
+  color: rgba(255, 255, 255, 0.8);
+  margin-left: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #fff, #9c9c9c);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+/* --- HERO --- */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 20px;
+  background: radial-gradient(circle at 30% 20%, #1a1a1a 0%, #0a0a0a 80%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #7a4cff, #ff0055, transparent 70%);
+  filter: blur(200px);
+  opacity: 0.5;
+  animation: glowMove 10s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #00ffff, #0077ff, transparent 70%);
+  filter: blur(200px);
+  opacity: 0.4;
+  animation: glowMove2 15s ease-in-out infinite alternate-reverse;
+  z-index: 0;
+}
+
+.hero h1, .hero p, .hero button {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #aaa;
+  margin-bottom: 30px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.hero button {
+  background: #ffffff;
+  color: #000;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.hero button:hover {
+  background: #ffffff10;
+  color: #ffffff;
+}
+
+@keyframes glowMove {
+  0% {
+    top: 10%;
+    left: 20%;
+    transform: scale(1);
+  }
+  50% {
+    top: 60%;
+    left: 60%;
+    transform: scale(1.3);
+  }
+  100% {
+    top: 20%;
+    left: 80%;
+    transform: scale(1);
+  }
+}
+
+@keyframes glowMove2 {
+  0% {
+    bottom: 10%;
+    right: 15%;
+    transform: scale(1);
+  }
+  50% {
+    bottom: 60%;
+    right: 60%;
+    transform: scale(1.2);
+  }
+  100% {
+    bottom: 25%;
+    right: 75%;
+    transform: scale(1);
+  }
+}
+
+/* --- Секции --- */
+.content-section {
+  min-height: 10vh;
+  padding: 80px 80px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.content-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid #222;
+  background: #0a0a0a;
+  color: #666;
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.program-card {
+  background: rgba(255, 255, 255, 0.030);
+  border-radius: 16px;
+  padding: 30px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.program-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(122, 76, 255, 0.2), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.program-card:hover::before {
+  opacity: 1;
+}
+
+.program-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(122, 76, 255, 0.10);
+}
+
+.program-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.program-card p {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+/* ======== */
+
+.about-gallery {
+  text-align: left;
+  padding: 0px 80px;
+  padding-top: 80px;
+}
+
+.about-gallery h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+.about-gallery p {
+  color: #bbb;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  max-width: 700px;
+  line-height: 1.7;
+}
+
+/* --- Галерея --- */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: flex-start;
+}
+
+.gallery-item {
+  position: relative;
+  flex: 1 1 calc(25% - 25px);
+  min-width: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+  filter: brightness(0.8);
+}
+
+/* --- Hover эффект --- */
+.gallery-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(1);
+}
+
+.gallery-item:hover {
+  box-shadow: 0 0 25px rgba(122, 76, 255, 0.30)
+}
+
+/* --- Плавное появление при скролле --- */
+.gallery-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.about-gallery.visible .gallery-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Адаптив --- */
+@media (max-width: 1000px) {
+  .gallery-item {
+    flex: 1 1 calc(50% - 25px);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-item {
+    flex: 1 1 100%;
+  }
+}
+
+
+/* ++++++++ */
+
+
+
+/* --- APPLY SECTION --- */
+#apply {
+  padding: 100px 80px;
+  text-align: left;
+}
+
+#apply h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+#apply p {
+  color: #aaa;
+  margin-bottom: 40px;
+}
+
+.group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.group-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.group-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(122, 76, 255, 0.25), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.group-card:hover::before {
+  opacity: 1;
+}
+
+.group-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(122, 76, 255, 0.15);
+}
+
+.group-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.group-card p {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+/* --- FORM --- */
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+}
+
+.apply-form label {
+  color: #bbb;
+  font-size: 0.9rem;
+}
+
+.apply-form input {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.apply-form input:focus {
+  background: rgba(255, 255, 255, 0.1);
+  outline: 1px solid rgba(122, 76, 255, 0.5);
+}
+
+.apply-form button {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7a4cff, #9c6bff);
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.apply-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(122, 76, 255, 0.4);
+}
+
+.group-card.selected {
+  box-shadow: 0 0 45px rgba(122, 76, 255, 0.35);
+  transform: translateY(-12px);
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- АДАПТИВ ДЛЯ МОБИЛЬНЫХ --- */
+
+/* --- Планшеты (до 1000px) --- */
+@media (max-width: 1000px) {
+  header {
+    padding: 12px 30px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero button {
+    padding: 10px 22px;
+    font-size: 0.95rem;
+  }
+
+  .content-section,
+  #apply,
+  .about-gallery {
+    padding: 60px 40px;
+  }
+
+  .gallery-item {
+    flex: 1 1 calc(50% - 20px);
+  }
+
+  nav a {
+    margin-left: 20px;
+    font-size: 0.95rem;
+  }
+
+  .group-grid {
+    gap: 25px;
+  }
+
+  .program-grid {
+    gap: 25px;
+  }
+}
+
+/* --- Смартфоны (до 700px) --- */
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    margin: 0 10px;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    height: 85vh;
+    padding: 0 20px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  .hero button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .content-section,
+  #apply,
+  .about-gallery {
+    padding: 50px 25px;
+  }
+
+  .about-gallery h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-gallery p {
+    font-size: 1rem;
+  }
+
+  .gallery {
+    gap: 15px;
+  }
+
+  .gallery-item {
+    flex: 1 1 100%;
+    border-radius: 14px;
+  }
+
+  .program-grid,
+  .group-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .program-card,
+  .group-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .apply-form {
+    width: 100%;
+  }
+
+  .apply-form input,
+  .apply-form button {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    padding: 20px;
+  }
+}
+
+/* --- Очень маленькие экраны (до 400px) --- */
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.85rem;
+  }
+
+  .hero button {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+  }
+
+  .group-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .program-card h3 {
+    font-size: 1.1rem;
+  }
+}
+

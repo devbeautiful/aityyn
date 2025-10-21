@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Колледж «АЙТЫЫН»</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo" onclick="scrollToSection('hero')">АЙТЫЫН</div>
+    <nav>
+      <a href="#about">О колледже</a>
+      <a href="#schedule">Расписание</a>
+      <a href="#teachers">Преподаватели</a>
+      <a href="#programs" onclick="scrollToSection('programs')">Направления</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Добро пожаловать в колледж «АЙТЫЫН»</h1>
+    <p>Современное образование, цифровое будущее.</p>
+    <button onclick="scrollToApply('apply')">Подать заявку</button>
+  </section>
+
+ <section id="about" class="content-section about-gallery">
+  <h2>О колледже</h2>
+  <p>
+    Колледж «АЙТЫЫН» — это пространство технологий, творчества и инноваций.  
+    Мы готовим специалистов будущего, объединяя современное образование и цифровую культуру.
+  </p>
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="assets/photo 1.jpg" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="assets/photo 2.jpg" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="assets/photo 3.jpg" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="assets/photo 4.jpg" alt="">
+    </div>
+  </div>
+</section>
+
+
+
+  <section id="schedule" class="content-section">
+    <h2>Расписание</h2>
+    <p>Следите за актуальным расписанием занятий и мероприятиями колледжа в онлайн-формате.</p>
+  </section>
+
+  <section id="teachers" class="content-section">
+    <h2>Преподаватели</h2>
+    <p>Наши преподаватели — это профессионалы своего дела, вдохновляющие студентов на развитие и самореализацию.</p>
+  </section>
+
+  <section id="programs" class="content-section">
+  <h2>Направления обучения</h2>
+  <div class="program-grid">
+    <div class="program-card">
+      <h3>Информационные технологии</h3>
+      <p>Разработка программ, сетевые технологии, кибербезопасность — готовим специалистов будущего.</p>
+    </div>
+
+    <div class="program-card">
+      <h3>Графический дизайн</h3>
+      <p>Обучаем визуальному мышлению, современным инструментам и созданию брендов нового поколения.</p>
+    </div>
+
+    <div class="program-card">
+      <h3>Медиа и видео</h3>
+      <p>Монтаж, видеосъёмка и цифровые медиа — создавай контент, который вдохновляет и рассказывает истории.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="apply" class="content-section">
+  <h2>Подать заявку</h2>
+  <p>Выберите направление обучения и оставьте заявку, чтобы стать частью колледжа «АЙТЫЫН».</p>
+
+  <div class="group-grid">
+    <div class="group-card" data-group="РКИ">
+      <h3>РКИ</h3>
+      <p>Разработка компьютерных игр</p>
+    </div>
+    <div class="group-card" data-group="ИСИП">
+      <h3>ИСИП</h3>
+      <p>Информационные системы и программирование</p>
+    </div>
+    <div class="group-card" data-group="ОИБ">
+      <h3>ОИБ</h3>
+      <p>Обеспечение информационной безопасности</p>
+    </div>
+  </div>
+
+  <form class="apply-form">
+  <label for="name">Ваше имя</label>
+  <input type="text" id="name" placeholder="Введите имя" required>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" placeholder="Введите email" required>
+
+  <label for="phone">Номер телефона</label>
+  <input type="tel" id="phone" placeholder="+7 999 999 99 99" maxlength="16" required>
+
+  <label for="group">Выбранная группа</label>
+  <input type="text" id="group" placeholder="Нажмите на карточку группы" readonly required>
+
+  <button type="submit">Отправить заявку</button>
+</form>
+
+</section>
+
+
+
+  <section id="contacts" class="content-section">
+    <h2>Контакты</h2>
+    <p>Email: info@aityyn.ru<br>Телефон: +7 (999) 999-99-99<br>Адрес: г. Покровск, ул. Улица, 99</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Колледж «АЙТЫЫН». Все права защищены.</p>
+  </footer>
+</body>
+</html>
