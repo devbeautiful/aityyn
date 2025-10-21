@@ -101,3 +101,11 @@ function scrollToSection(sectionId) {
 }
 
 
+// Добавить после существующей валидации
+phoneInput.addEventListener('blur', () => {
+  if (phoneInput.value && phoneInput.value.length < 12) {
+    phoneInput.style.border = '1px solid #ff4444';
+  } else {
+    phoneInput.style.border = 'none';
+  }
+});
